@@ -1,0 +1,68 @@
+{
+  "name": "epcvip-client",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Rich Tillman",
+  "dependencies": {
+    "@types/jest": "26.0.4",
+    "@types/node": "14.0.23",
+    "@types/react": "16.9.43",
+    "@types/react-dom": "16.9.8",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@loadable/component": "^5.14.1",
+    "axios": "^0.19.0-beta.1",
+    "axios-auth-refresh": "^2.2.0",
+    "lodash": "^4.17.11",
+    "moment-timezone": "^0.5.21",
+    "overmind": "latest",
+    "overmind-react": "latest",
+    "grommet": "^2.16.0",
+    "prop-types": "^15.6.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.0.0",
+    "react-hook-form": "latest",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "styled-components": "^5.2.1",
+    "styled-system": "5.1.5",
+    "swr": "latest",
+    "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "ejs-lint": "^1.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "eslint-plugin-react": "latest",
+    "eslint-plugin-import": "latest"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier-eslint --write \"$PWD/src/**/*.js\"",
+      "eslint src",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://epcvip-server:8000",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
