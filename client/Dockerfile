@@ -2,9 +2,9 @@ FROM node:10.17.0-alpine3.10
 
 WORKDIR /usr/app/client
 
-COPY package.json ./
+COPY package.json yarn.lock ./
 
-RUN yarn install && yarn cache clean
+RUN yarn install --pure-lockfile && yarn cache clean
 
 EXPOSE 3000
 

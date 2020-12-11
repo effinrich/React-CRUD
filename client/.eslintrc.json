@@ -1,10 +1,5 @@
 {
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "extends": ["react-app", "prettier", "prettier/react", "eslint:recommended","plugin:react/recommended"],
+  "extends": ["react-app", "prettier", "prettier/react"],
   "rules": {
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
@@ -15,9 +10,7 @@
     "no-unused-vars": "error",
     "no-redeclare": "error",
     "no-console": "error",
-    "react/prop-types": "error",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/prop-types": "error"
   },
   "overrides": [
     {
@@ -30,6 +23,12 @@
         "max-nested-callbacks": "off",
         "no-magic-numbers": "off",
         "max-statements": ["error", 30]
+      }
+    },
+    {
+      "files": ["src/components/**/story.js"],
+      "rules": {
+        "react/prop-types": "off"
       }
     },
     {

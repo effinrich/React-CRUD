@@ -21,8 +21,8 @@ npm audit fix
 You can login/register by sending a POST request to
 
 ```
-POST http://localhost:8000/auth/login
-POST http://localhost:8000/auth/register
+POST http://localhost:3080/auth/login
+POST http://localhost:3080/auth/register
 ```
 with the following data 
 

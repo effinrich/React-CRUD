@@ -1,35 +1,45 @@
 /** @format */
 import React, { useState } from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import loadable from '@loadable/component'
 import {
   Box,
   Button,
   Collapsible,
+  // Main,
   // Heading,
-  DropButton,
+  // DropButton,
   Grommet,
   Image,
   ResponsiveContext,
-  Layer,
+  Layer
 } from 'grommet'
-import { FormClose, Menu } from 'grommet-icons'
+import { FormClose /*, Menu*/ } from 'grommet-icons'
+
+import PrivateRoute from 'components/PrivateRoute'
 
 import Logo from './logo.png'
+
+const Login = loadable(/* istanbul ignore next */ () => import('views/Login'))
+const Dashboard = loadable(
+  /* istanbul ignore next */ () => import('views/Dashboard')
+)
 
 const theme = {
   global: {
     colors: {
       brand: '#372F30',
-      control: '#363636',
+      control: '#363636'
     },
     font: {
       family: 'Roboto',
       size: '18px',
-      height: '20px',
-    },
-  },
+      height: '20px'
+    }
+  }
 }
 
-const AppBar = (props) => (
+const AppBar = props => (
   <Box
     tag="header"
     direction="row"
@@ -49,11 +59,15 @@ const App = () => {
   return (
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
-        {(size) => (
+        {size => (
           <Box fill>
             <AppBar>
-              <Image fill src={Logo} style={{ width: '100%', maxWidth: '170px', height: 'auto' }} />
-              <DropButton
+              <Image
+                fill
+                src={Logo}
+                style={{ width: '100%', maxWidth: '170px', height: 'auto' }}
+              />
+              {/* <DropButton
                 icon={<Menu />}
                 dropAlign={{ top: 'bottom', right: 'right' }}
                 items={[
@@ -63,11 +77,15 @@ const App = () => {
                   },
                 ]}
                 // onClick={() => setShowSidebar(!showSidebar)}
-              />
+              /> */}
             </AppBar>
             <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
               <Box flex align="center" justify="center">
-                app body
+                <Switch>
+                  <Route exact path="/login" component={Login} />
+                  <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                  <Route render={() => <Redirect to="/login" />} />
+                </Switch>
               </Box>
               {!showSidebar || size !== 'small' ? (
                 <Collapsible direction="horizontal" open={showSidebar}>
@@ -91,9 +109,17 @@ const App = () => {
                     align="center"
                     direction="row"
                   >
-                    <Button icon={<FormClose />} onClick={() => setShowSidebar(false)} />
+                    <Button
+                      icon={<FormClose />}
+                      onClick={() => setShowSidebar(false)}
+                    />
                   </Box>
-                  <Box fill background="light-2" align="center" justify="center">
+                  <Box
+                    fill
+                    background="light-2"
+                    align="center"
+                    justify="center"
+                  >
                     sidebar
                   </Box>
                 </Layer>
