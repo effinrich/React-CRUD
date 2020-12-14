@@ -2,6 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project details
+This test project was created using several tools I hadn't used, but wanted to try out with this test:
+- Grommet UI library
+- @reduxjs/toolkit
+- @testing-library
+- formik
+
+## Docker instructions
+Yarn is required for this particular project, so make sure you have Yarn installed on your machine. To build and run the project on Docker just run the following command in the root directory:
+- docker-compose up
+
 ## Available Scripts
 
 In the project directory, you can run:
