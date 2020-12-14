@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login View Component renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="StyledBox-sc-13pk1d4-0 bxevCE sc-bdfBwQ FAtxg"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 fMrygi"
+    >
+      <form>
+        <div
+          class="StyledBox-sc-13pk1d4-0 dLXLoO FormField__FormFieldBox-m9hood-0 jGEMXj"
+        >
+          <label
+            class="StyledText-sc-1sadyjn-0 drTEXR"
+          >
+            Email
+          </label>
+          <div
+            class="StyledBox-sc-13pk1d4-0 gmReJc FormField__FormFieldContentBox-m9hood-1"
+          >
+            <div
+              class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 dpaJQp"
+            >
+              <input
+                aria-label="Email input field"
+                autocomplete="off"
+                class="StyledTextInput-sc-1x30a0s-0 kfWKkd"
+                name="email"
+                placeholder="Enter your email"
+                type="email"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="StyledBox-sc-13pk1d4-0 dLXLoO FormField__FormFieldBox-m9hood-0 jGEMXj"
+        >
+          <label
+            class="StyledText-sc-1sadyjn-0 drTEXR"
+          >
+            Password
+          </label>
+          <div
+            class="StyledBox-sc-13pk1d4-0 gmReJc FormField__FormFieldContentBox-m9hood-1"
+          >
+            <div
+              class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 dpaJQp"
+            >
+              <input
+                aria-label="Password input field"
+                autocomplete="off"
+                class="StyledTextInput-sc-1x30a0s-0 kfWKkd"
+                name="password"
+                placeholder="Enter your password"
+                type="password"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="StyledBox-sc-13pk1d4-0 cOxGhq"
+        >
+          <button
+            class="StyledButton-sc-323bzc-0 eMUCep"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;

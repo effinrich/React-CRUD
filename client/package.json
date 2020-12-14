@@ -11,7 +11,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.19.0-beta.1",
-    "formik": "2.0.6",
+    "formik": "latest",
     "grommet": "^2.16.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
@@ -36,7 +36,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "FORCE_COLOR=true react-scripts test -u --watch --env=jsdom",
     "eject": "react-scripts eject"
   },
   "proxy": "http://epcvip-server:3080",
