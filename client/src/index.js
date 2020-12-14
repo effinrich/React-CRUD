@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import loadable from '@loadable/component'
+import { Grommet } from 'grommet'
 
 import store from 'store'
+import { theme } from 'theme'
 
 import reportWebVitals from './reportWebVitals'
 
@@ -13,9 +15,11 @@ const App = loadable(/* istanbul ignore next */ () => import('views/App'))
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <Route path="/" component={App} />
-      </BrowserRouter>
+      <Grommet theme={theme} full>
+        <BrowserRouter>
+          <Route path="/" component={App} />
+        </BrowserRouter>
+      </Grommet>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

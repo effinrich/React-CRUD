@@ -4,19 +4,20 @@
   "private": true,
   "author": "Rich Tillman",
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "@reduxjs/toolkit": "1.5.0",
+    "@testing-library/dom": "^7.21.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "@testing-library/dom": "^7.21.4",
-    "@loadable/component": "^5.14.1",
     "axios": "^0.19.0-beta.1",
     "axios-auth-refresh": "^2.2.0",
     "formik": "2.0.6",
-    "lodash": "^4.17.11",
     "grommet": "^2.16.0",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^17.0.1",
+    "react-data-table-component": "^6.11.6",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.0.0",
     "react-hook-form": "latest",
@@ -27,7 +28,8 @@
     "styled-components": "^5.2.1",
     "styled-system": "5.1.5",
     "swr": "latest",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

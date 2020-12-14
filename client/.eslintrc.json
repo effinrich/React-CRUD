@@ -26,12 +26,6 @@
       }
     },
     {
-      "files": ["src/components/**/story.js"],
-      "rules": {
-        "react/prop-types": "off"
-      }
-    },
-    {
       "files": ["src/components/**/*.js", "src/views/**/*.js"],
       "rules": {
         "no-magic-numbers": "off"
