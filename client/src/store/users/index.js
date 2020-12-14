@@ -25,6 +25,13 @@ const slice = createSlice({
       state.isCreateUserSuccess = false
       state.isPatchUserSuccess = false
     },
+    startLoadingFetchUser: state => {
+      state.user = {
+        firstName: '',
+        lastName: '',
+        email: ''
+      }
+    },
     hasError: (state, action) => {
       state.error = action.payload
       state.isLoading = false
@@ -41,7 +48,6 @@ const slice = createSlice({
       state.isCreateUserSuccess = action.payload
     },
     fetchUserByIdSuccess: (state, action) => {
-      // state.isLoading = false
       state.user = {
         firstName: action.payload.data.first_name,
         lastName: action.payload.data.last_name,
@@ -70,6 +76,7 @@ const {
   hasError,
   deleteSuccess,
   createUserSuccess,
+  startLoadingFetchUser,
   fetchUserByIdSuccess,
   patchUserSuccess
 } = slice.actions
@@ -86,6 +93,7 @@ export const fetchUsers = (page, size) => async dispatch => {
 }
 
 export const fetchUserById = userId => async dispatch => {
+  dispatch(startLoadingFetchUser())
   try {
     await api
       .get(`/users/${userId}`)

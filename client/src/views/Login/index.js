@@ -51,32 +51,34 @@ const Login = () => {
 
   return (
     <StyledLogin fill align="center" justify="center">
-      <Box width="medium" pad="medium" round="xsmall" background="white">
+      <Box
+        width="medium"
+        pad="large"
+        round="small"
+        background="white"
+        elevation="small"
+      >
         <form onSubmit={formik.handleSubmit}>
           <FormField label="Email" error={formik.errors.email}>
             <TextInput
               name="email"
               type="email"
+              placeholder="Enter your email"
               a11yTitle="Email input field"
               {...emailProps}
             />
           </FormField>
-          <FormField label="Password" error={formik.errors.email}>
+          <FormField label="Password" error={formik.errors.password}>
             <TextInput
               name="password"
               type="password"
+              placeholder="Enter your password"
               a11yTitle="Password input field"
               {...passwordProps}
             />
           </FormField>
           <Box margin={{ top: 'medium' }} direction="row">
-            <Button
-              fill="horizontal"
-              type="submit"
-              primary
-              label="Login"
-              // disabled={!(formik.isValid && formik.dirty)}
-            />
+            <Button fill="horizontal" type="submit" primary label="Login" />
           </Box>
         </form>
         {fetchError && <ErrorBox>{fetchError}</ErrorBox>}

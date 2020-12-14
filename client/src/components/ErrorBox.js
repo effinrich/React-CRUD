@@ -1,19 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box } from 'grommet'
+import { Box, Text } from 'grommet'
 
 const ErrorBox = ({ children }) => {
   return (
     <Box
       align="center"
       animation="fadeIn"
-      background="rgb(202, 25, 0)"
-      round="xsmall"
+      background="status-error"
+      round="small"
       pad="small"
       margin={{ top: '15px' }}
-      pt={3}
     >
-      {children}
+      <Text weight={600}>{children}</Text>
     </Box>
   )
 }

@@ -1,7 +1,7 @@
 /** @format */
 import React, { useEffect, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Avatar, Box, Button } from 'grommet'
+import { Avatar, Box, Button, Tip } from 'grommet'
 import { Edit, Trash } from 'grommet-icons'
 import DataTable from 'react-data-table-component'
 import styled from 'styled-components'
@@ -60,6 +60,7 @@ const Dashboard = () => {
     {
       cell: row => (
         <RoutedButton
+          tooltipContent="Edit user"
           plain
           path={`/edit-user/${row.id}`}
           icon={<Edit color="status-ok" />}
@@ -69,16 +70,18 @@ const Dashboard = () => {
     },
     {
       cell: row => (
-        <Button
-          plain
-          onClick={() => handleDeleteUser(row)}
-          icon={<Trash color="status-error" />}
-        />
+        <Tip content="Delete user">
+          <Button
+            plain
+            onClick={() => handleDeleteUser(row)}
+            icon={<Trash color="status-error" />}
+          />
+        </Tip>
       ),
       width: '65px'
     },
     {
-      cell: row => <Avatar src={row.avatar} size="medium" />,
+      cell: row => <Avatar src={row.avatar} />,
       button: false
     },
     {

@@ -5,7 +5,6 @@ export const theme = deepMerge(grommet, {
   global: {
     colors: {
       active: 'control',
-      placeholder: 'dark-1',
       brand: '#372F30',
       control: '#363636'
     },
@@ -44,7 +43,7 @@ export const theme = deepMerge(grommet, {
   },
   button: {
     border: {
-      radius: '12px'
+      radius: '18px'
     },
     color: '#ffeb3b',
     default: {
@@ -61,6 +60,11 @@ export const theme = deepMerge(grommet, {
         color: '#ffeb3b',
         background: { color: 'brand', opacity: 0.9 }
       }
+    }
+  },
+  avatar: {
+    size: {
+      medium: '36px'
     }
   }
 })

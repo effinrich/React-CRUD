@@ -80,6 +80,7 @@ const UserEdit = ({ match }) => {
             <TextInput
               name="first_name"
               type="text"
+              placeholder="Enter your first name"
               a11yTitle="First name input field"
               {...firstNameProps}
             />
@@ -88,6 +89,7 @@ const UserEdit = ({ match }) => {
             <TextInput
               name="last_name"
               type="text"
+              placeholder="Enter your last name"
               a11yTitle="Last name input field"
               {...lastNameProps}
             />
@@ -96,6 +98,7 @@ const UserEdit = ({ match }) => {
             <TextInput
               name="email"
               type="email"
+              placeholder="Enter your email"
               a11yTitle="Email input field"
               {...emailProps}
             />
