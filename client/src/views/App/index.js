@@ -7,6 +7,7 @@ import { Menu } from 'grommet-icons'
 
 import Sidebar from 'components/Sidebar'
 import PrivateRoute from 'components/PrivateRoute'
+import AppBar from 'components/AppBar'
 import Logo from 'assets/logo.png'
 
 import { logout } from 'store/auth'
@@ -38,20 +39,6 @@ const items = [
     path: '/add-user'
   }
 ]
-
-const AppBar = props => (
-  <Box
-    tag="header"
-    direction="row"
-    align="center"
-    justify="between"
-    background="brand"
-    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-    style={{ zIndex: '1', minHeight: '65px' }}
-    elevation="small"
-    {...props}
-  />
-)
 
 const App = () => {
   const dispatch = useDispatch()
