@@ -11,7 +11,7 @@ This test project was created using several tools I hadn't used, but wanted to t
 
 ## Docker instructions
 Yarn is required for this particular project, so make sure you have Yarn installed on your machine. To build and run the project on Docker just run the following command in the root directory:
-- docker-compose up
+- docker-compose up (may need `docker-compose build` first)
 
 ## Available Scripts
 
