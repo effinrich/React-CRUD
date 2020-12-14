@@ -1,43 +1,43 @@
-/** @format */
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import loadable from '@loadable/component'
-import {
-  Box,
-  Button,
-  Collapsible,
-  // Main,
-  // Heading,
-  // DropButton,
-  Grommet,
-  Image,
-  ResponsiveContext,
-  Layer
-} from 'grommet'
-import { FormClose /*, Menu*/ } from 'grommet-icons'
+import { Box, Image, ResponsiveContext, Button } from 'grommet'
+import { Menu } from 'grommet-icons'
 
+import Sidebar from 'components/Sidebar'
 import PrivateRoute from 'components/PrivateRoute'
+import Logo from 'assets/logo.png'
 
-import Logo from './logo.png'
+import { logout } from 'store/auth'
 
 const Login = loadable(/* istanbul ignore next */ () => import('views/Login'))
 const Dashboard = loadable(
   /* istanbul ignore next */ () => import('views/Dashboard')
 )
+const UserNew = loadable(
+  /* istanbul ignore next */ () => import('views/UserNew')
+)
+const UserEdit = loadable(
+  /* istanbul ignore next */ () => import('views/UserEdit')
+)
+const NotFound = loadable(
+  /* istanbul ignore next */ () => import('views/NotFound')
+)
 
-const theme = {
-  global: {
-    colors: {
-      brand: '#372F30',
-      control: '#363636'
-    },
-    font: {
-      family: 'Roboto',
-      size: '18px',
-      height: '20px'
-    }
+const items = [
+  {
+    active: true,
+    label: 'Dashboard',
+    path: '/',
+    exact: true
+  },
+  {
+    active: true,
+    label: 'Add User',
+    path: '/add-user'
   }
-}
+]
 
 const AppBar = props => (
   <Box
@@ -47,88 +47,70 @@ const AppBar = props => (
     justify="between"
     background="brand"
     pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-    elevation="medium"
-    style={{ zIndex: '1' }}
+    style={{ zIndex: '1', minHeight: '65px' }}
+    elevation="small"
     {...props}
   />
 )
 
 const App = () => {
+  const dispatch = useDispatch()
+  const { auth } = useSelector(state => state.auth)
+
   const [showSidebar, setShowSidebar] = useState(false)
 
+  const handleToggleSidebar = () => {
+    setShowSidebar(!showSidebar)
+  }
+
+  const handleLogout = () => {
+    dispatch(logout())
+  }
+
   return (
-    <Grommet theme={theme} full>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Box fill>
-            <AppBar>
+    <ResponsiveContext.Consumer>
+      {size => (
+        <Box fill background="light-1">
+          <AppBar>
+            <Box>
               <Image
                 fill
                 src={Logo}
                 style={{ width: '100%', maxWidth: '170px', height: 'auto' }}
               />
-              {/* <DropButton
-                icon={<Menu />}
-                dropAlign={{ top: 'bottom', right: 'right' }}
-                items={[
-                  {
-                    label: 'Logout',
-                    onClick: () => setShowSidebar(!showSidebar),
-                  },
-                ]}
-                // onClick={() => setShowSidebar(!showSidebar)}
-              /> */}
-            </AppBar>
-            <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
-              <Box flex align="center" justify="center">
-                <Switch>
-                  <Route exact path="/login" component={Login} />
-                  <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                  <Route render={() => <Redirect to="/login" />} />
-                </Switch>
+            </Box>
+            {size === 'small' && auth && (
+              <Box>
+                <Button
+                  plain
+                  icon={<Menu size="medium" />}
+                  onClick={() => handleToggleSidebar()}
+                />
               </Box>
-              {!showSidebar || size !== 'small' ? (
-                <Collapsible direction="horizontal" open={showSidebar}>
-                  <Box
-                    flex
-                    width="medium"
-                    background="light-2"
-                    elevation="small"
-                    align="center"
-                    justify="center"
-                  >
-                    sidebar
-                  </Box>
-                </Collapsible>
-              ) : (
-                <Layer>
-                  <Box
-                    background="light-2"
-                    tag="header"
-                    justify="end"
-                    align="center"
-                    direction="row"
-                  >
-                    <Button
-                      icon={<FormClose />}
-                      onClick={() => setShowSidebar(false)}
-                    />
-                  </Box>
-                  <Box
-                    fill
-                    background="light-2"
-                    align="center"
-                    justify="center"
-                  >
-                    sidebar
-                  </Box>
-                </Layer>
-              )}
+            )}
+          </AppBar>
+          <Box direction="row" fill>
+            {(!showSidebar || size !== 'small') && auth && (
+              <Sidebar
+                items={items}
+                onToggleSidebar={handleToggleSidebar}
+                onLogoutClick={handleLogout}
+              />
+            )}
+            <Box flex>
+              <Switch>
+                <Route exact path="/login" component={Login} />
+                <PrivateRoute exact path="/" component={Dashboard} />
+                <PrivateRoute path="/edit-user/:id" component={UserEdit} />
+                <PrivateRoute path="/add-user" component={UserNew} />
+                <Route render={() => <Redirect to="/login" />} />
+                <Route component={NotFound} />
+              </Switch>
             </Box>
           </Box>
-        )}
-      </ResponsiveContext.Consumer>
-    </Grommet>
+        </Box>
+      )}
+    </ResponsiveContext.Consumer>
   )
 }
 

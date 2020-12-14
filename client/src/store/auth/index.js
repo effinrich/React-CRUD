@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { createSlice } from '@reduxjs/toolkit'
 
 import api from './api'
@@ -11,13 +10,16 @@ const initialAuth = localStorage.getItem('auth')
 const slice = createSlice({
   name: 'auth',
   initialState: {
-    auth: initialAuth
+    auth: initialAuth,
+    error: false
   },
   reducers: {
     loginSuccess: (state, action) => {
-      console.log(state, action.payload)
       state.auth = action.payload
       localStorage.setItem('auth', JSON.stringify(action.payload))
+    },
+    hasError: (state, action) => {
+      state.error = action.payload
     },
     logoutSuccess: (state, action) => {
       state.auth = null
@@ -29,21 +31,17 @@ const slice = createSlice({
 export default slice.reducer
 
 // Actions
-const { loginSuccess, logoutSuccess } = slice.actions
+const { loginSuccess, logoutSuccess, hasError } = slice.actions
 
 export const login = ({ email, password }) => async dispatch => {
   try {
     const { data } = await api.post('/auth/login', { email, password })
     dispatch(loginSuccess(data.access_token))
   } catch (e) {
-    return console.error(e.message)
+    dispatch(hasError(e.response.data.message))
   }
 }
 
 export const logout = () => async dispatch => {
-  try {
-    return dispatch(logoutSuccess())
-  } catch (e) {
-    return console.error(e.message)
-  }
+  return dispatch(logoutSuccess())
 }

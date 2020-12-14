@@ -2,79 +2,85 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { /*Field, Form,*/ useFormik } from 'formik'
+import { useFormik } from 'formik'
 import * as yup from 'yup'
 import styled from 'styled-components'
 import { space } from 'styled-system'
-// import { Box, Button, FormField, Heading, Card, TextInput } from 'grommet'
-import { Box, FormField, Card, TextInput, Button } from 'grommet'
+import { Box, FormField, TextInput, Button } from 'grommet'
 
+import ErrorBox from 'components/ErrorBox'
 import { login } from 'store/auth'
 
-const StyledLogin = styled.div`
+const StyledLogin = styled(Box)`
   ${space};
 `
+
+//setting the initial values
+const initialValues = {
+  email: '',
+  password: ''
+}
 
 const validationSchema = yup.object({
   email: yup
     .string('Enter your email')
     .email('Enter a valid email')
     .required('Email is required'),
-  password: yup
-    .string('Enter your password')
-    .min(4, 'Password should be of minimum 8 characters length')
-    .required('Password is required')
+  password: yup.string('Enter your password').required('Password is required')
 })
 
 const Login = () => {
   const dispatch = useDispatch()
-  const { auth } = useSelector(state => state.auth)
+  const { auth, error: fetchError } = useSelector(state => state.auth)
 
   const formik = useFormik({
-    initialValues: { email: '', password: '' },
-    validationSchema: validationSchema,
-    onSubmit: values => {
+    initialValues,
+    validationSchema,
+    onSubmit: async (values, { setSubmitting }) => {
       dispatch(login(values))
+      setSubmitting()
     }
   })
 
+  const emailProps = formik.getFieldProps('email')
+  const passwordProps = formik.getFieldProps('password')
+
   if (auth) {
-    return <Redirect to="/dashboard" />
+    return <Redirect to="/" />
   }
 
   return (
-    <StyledLogin>
-      <Card
-        width="medium"
-        pad="medium"
-        round="small"
-        elevation="small"
-        background="light-1"
-      >
+    <StyledLogin fill align="center" justify="center">
+      <Box width="medium" pad="medium" round="xsmall" background="white">
         <form onSubmit={formik.handleSubmit}>
-          <FormField label="Email">
+          <FormField label="Email" error={formik.errors.email}>
             <TextInput
               name="email"
               type="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              error={formik.touched.email && Boolean(formik.errors.email)}
+              a11yTitle="Email input field"
+              {...emailProps}
             />
           </FormField>
-          <FormField label="Password">
+          <FormField label="Password" error={formik.errors.email}>
             <TextInput
               name="password"
               type="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              error={formik.touched.password && Boolean(formik.errors.password)}
+              a11yTitle="Password input field"
+              {...passwordProps}
             />
           </FormField>
           <Box margin={{ top: 'medium' }} direction="row">
-            <Button fill="horizontal" type="submit" primary label="Login" />
+            <Button
+              fill="horizontal"
+              type="submit"
+              primary
+              label="Login"
+              // disabled={!(formik.isValid && formik.dirty)}
+            />
           </Box>
         </form>
-      </Card>
+        {fetchError && <ErrorBox>{fetchError}</ErrorBox>}
+      </Box>
     </StyledLogin>
   )
 }
