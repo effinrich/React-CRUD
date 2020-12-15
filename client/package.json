@@ -11,6 +11,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.19.0-beta.1",
+    "axios-mock-adapter": "^1.19.0",
     "formik": "latest",
     "grommet": "^2.16.0",
     "lodash": "^4.17.11",
@@ -38,6 +39,9 @@
     "build": "react-scripts build",
     "test": "FORCE_COLOR=true react-scripts test -u --watch --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "resetMocks": false
   },
   "proxy": "http://epcvip-server:3080",
   "browserslist": {

@@ -1,5 +1,6 @@
 import React from 'react'
-import { render, cleanup /*, screen*/ } from 'utils/custom-test-render'
+
+import { render, cleanup } from 'utils/testUtils/helperRtl'
 
 import App from '../index'
 

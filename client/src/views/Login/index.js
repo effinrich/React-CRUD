@@ -36,9 +36,8 @@ const Login = () => {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: async (values, { setSubmitting }) => {
+    onSubmit: async values => {
       dispatch(login(values))
-      setSubmitting()
     }
   })
 
@@ -59,8 +58,9 @@ const Login = () => {
         elevation="small"
       >
         <form onSubmit={formik.handleSubmit}>
-          <FormField label="Email" error={formik.errors.email}>
+          <FormField htmlFor="email" label="Email" error={formik.errors.email}>
             <TextInput
+              id="email"
               name="email"
               type="email"
               placeholder="Enter your email"
@@ -68,8 +68,13 @@ const Login = () => {
               {...emailProps}
             />
           </FormField>
-          <FormField label="Password" error={formik.errors.password}>
+          <FormField
+            htmlFor="password"
+            label="Password"
+            error={formik.errors.password}
+          >
             <TextInput
+              id="password"
               name="password"
               type="password"
               placeholder="Enter your password"
@@ -81,7 +86,7 @@ const Login = () => {
             <Button fill="horizontal" type="submit" primary label="Login" />
           </Box>
         </form>
-        {fetchError && <ErrorBox>{fetchError}</ErrorBox>}
+        {fetchError && <ErrorBox data-testid="errorBox">{fetchError}</ErrorBox>}
       </Box>
     </StyledLogin>
   )
