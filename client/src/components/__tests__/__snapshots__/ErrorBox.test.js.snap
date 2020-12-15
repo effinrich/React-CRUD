@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBox Component should render without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="StyledBox-sc-13pk1d4-0 sveFj"
+  >
+    <span
+      class="StyledText-sc-1sadyjn-0 bLeCln"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ErrorBox Component should render without crashing 2`] = `
+<DocumentFragment>
+  <div
+    class="StyledBox-sc-13pk1d4-0 sveFj"
+  >
+    <span
+      class="StyledText-sc-1sadyjn-0 bLeCln"
+    />
+  </div>
+</DocumentFragment>
+`;
