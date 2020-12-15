@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login View Component renders without crashing 1`] = `
+exports[`Login View Component should render without crashing 1`] = `
 <DocumentFragment>
   <div
     class="StyledBox-sc-13pk1d4-0 bxevCE sc-bdfBwQ FAtxg"
@@ -14,6 +14,7 @@ exports[`Login View Component renders without crashing 1`] = `
         >
           <label
             class="StyledText-sc-1sadyjn-0 drTEXR"
+            for="email"
           >
             Email
           </label>
@@ -27,6 +28,7 @@ exports[`Login View Component renders without crashing 1`] = `
                 aria-label="Email input field"
                 autocomplete="off"
                 class="StyledTextInput-sc-1x30a0s-0 kfWKkd"
+                id="email"
                 name="email"
                 placeholder="Enter your email"
                 type="email"
@@ -40,6 +42,7 @@ exports[`Login View Component renders without crashing 1`] = `
         >
           <label
             class="StyledText-sc-1sadyjn-0 drTEXR"
+            for="password"
           >
             Password
           </label>
@@ -53,6 +56,7 @@ exports[`Login View Component renders without crashing 1`] = `
                 aria-label="Password input field"
                 autocomplete="off"
                 class="StyledTextInput-sc-1x30a0s-0 kfWKkd"
+                id="password"
                 name="password"
                 placeholder="Enter your password"
                 type="password"
