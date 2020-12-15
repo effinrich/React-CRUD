@@ -37,7 +37,7 @@ const Login = () => {
     initialValues,
     validationSchema,
     onSubmit: async values => {
-      dispatch(login(values))
+      await dispatch(login(values))
     }
   })
 
@@ -86,7 +86,7 @@ const Login = () => {
             <Button fill="horizontal" type="submit" primary label="Login" />
           </Box>
         </form>
-        {fetchError && <ErrorBox data-testid="errorBox">{fetchError}</ErrorBox>}
+        {fetchError && <ErrorBox>{fetchError}</ErrorBox>}
       </Box>
     </StyledLogin>
   )
