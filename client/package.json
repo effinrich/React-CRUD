@@ -1,7 +1,7 @@
 {
   "name": "epcvip-client",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "author": "Rich Tillman",
   "dependencies": {
     "@loadable/component": "^5.14.1",
@@ -37,7 +37,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "FORCE_COLOR=true react-scripts test -u --watch --env=jsdom",
+    "test": "react-scripts test -u --env=jsdom",
+    "test:local": "FORCE_COLOR=true react-scripts test -u --watch --env=jsdom",
     "eject": "react-scripts eject"
   },
   "jest": {
