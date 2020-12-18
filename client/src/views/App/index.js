@@ -58,7 +58,7 @@ const App = () => {
     <ResponsiveContext.Consumer>
       {size => (
         <Box fill background="light-1">
-          <AppBar>
+          <AppBar data-testid="app-bar">
             <Box>
               <Image
                 fill

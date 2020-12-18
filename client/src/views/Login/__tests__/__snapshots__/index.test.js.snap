@@ -9,6 +9,12 @@ exports[`Login View Component should render without crashing 1`] = `
       class="StyledBox-sc-13pk1d4-0 fMrygi"
     >
       <form>
+        <h1
+          class="StyledHeading-sc-1rdh4aw-0 fmEWrv"
+          style="padding: 0px; margin-top: 0px; margin-bottom: 10px;"
+        >
+          Welcome
+        </h1>
         <div
           class="StyledBox-sc-13pk1d4-0 dLXLoO FormField__FormFieldBox-m9hood-0 jGEMXj"
         >

@@ -120,27 +120,6 @@ describe('Login View Component', () => {
       )
     )
 
-    // await waitFor(() => {
-    //   expect(handleSubmit).toHaveBeenCalledWith(
-    //     {
-    //       email: 'test@tester.com',
-    //       password: 'tester'
-    //     },
-    //     expect.anything()
-    //   )
-    // })
-
-    // setTimeout(
-    //   () =>
-    //     expect(handleSubmit).toHaveBeenCalledWith(
-    //       {
-    //         email: 'admin@epcvip.com',
-    //         password: 'admin'
-    //       },
-    //       expect.anything()
-    //     ),
-    //   1000
-    // )
     await act(() => promise)
   })
 })

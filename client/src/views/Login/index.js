@@ -6,7 +6,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import styled from 'styled-components'
 import { space } from 'styled-system'
-import { Box, FormField, TextInput, Button } from 'grommet'
+import { Box, FormField, TextInput, Button, Heading } from 'grommet'
 
 import ErrorBox from 'components/ErrorBox'
 import { login } from 'store/auth'
@@ -58,6 +58,9 @@ const Login = () => {
         elevation="small"
       >
         <form onSubmit={formik.handleSubmit}>
+          <Heading style={{ padding: 0, marginTop: 0, marginBottom: '10px' }}>
+            Welcome
+          </Heading>
           <FormField htmlFor="email" label="Email" error={formik.errors.email}>
             <TextInput
               id="email"
