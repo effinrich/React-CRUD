@@ -3,7 +3,6 @@ import { withFormik } from 'formik'
 
 import {
   render,
-  cleanup,
   fireEvent,
   waitFor,
   // screen
@@ -11,10 +10,6 @@ import {
 } from 'utils/testUtils/helperRtl'
 
 import Login from '../index'
-
-afterEach(() => {
-  cleanup()
-})
 
 const initialValues = {
   email: 'test@tester.com',
@@ -40,8 +35,8 @@ const renderWithFormik = (options, props) => {
 
 describe('Login View Component', () => {
   it('should render without crashing', () => {
-    const { asFragment } = renderWithFormik()
-    expect(asFragment()).toMatchSnapshot()
+    const { container } = renderWithFormik()
+    expect(container).toMatchSnapshot()
   })
 
   it('should render child element', () => {
@@ -119,7 +114,5 @@ describe('Login View Component', () => {
         expect.anything()
       )
     )
-
-    await act(() => promise)
   })
 })

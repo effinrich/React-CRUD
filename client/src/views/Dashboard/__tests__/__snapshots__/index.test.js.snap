@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard View Component renders without crashing 1`] = `
+<div>
+  <div
+    class="StyledBox-sc-13pk1d4-0 djCvjv sc-iktFzd zgwlS"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 fTeJqU"
+    >
+      <h1
+        class="StyledHeading-sc-1rdh4aw-0 dtaByy"
+      >
+        Dashboard
+      </h1>
+      <div
+        class="StyledBox-sc-13pk1d4-0 hebQSN"
+      >
+        <button
+          class="StyledButton-sc-323bzc-0 jQIfkU"
+          type="button"
+        >
+          Add New User
+        </button>
+      </div>
+    </div>
+    <div
+      class="StyledBox-sc-13pk1d4-0 dQYirl"
+    >
+      <div
+        aria-level="1"
+        class="sc-fodVxV gbjtWJ rdt_TableHeader"
+        role="heading"
+      >
+        <div
+          class="sc-fFubgz fYvZuV"
+        />
+        <div
+          class="sc-bkzZxe iPmElK"
+        />
+        <div
+          class="sc-hBEYos fdFxek"
+        >
+          <div
+            class="sc-bqyKva huJooB"
+          />
+          <div
+            class="sc-kstrdz hfkHbn"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-hHftDr ddahQf"
+      >
+        <div
+          class="sc-kfzAmx bdkqKp"
+        >
+          <div
+            class="sc-bdfBwQ bmhpxS rdt_Table"
+            disabled=""
+            role="table"
+          >
+            <div
+              class="sc-bBXqnf dMPErV"
+            >
+              <div
+                style="padding: 24px;"
+              >
+                There are no records to display
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
