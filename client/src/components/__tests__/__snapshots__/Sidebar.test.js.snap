@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar Component should render without crashing 1`] = `
+<div>
+  <div>
+    <div
+      class="StyledBox-sc-13pk1d4-0 XdbHb"
+    >
+      <div
+        class="StyledBox-sc-13pk1d4-0 lfOCqA"
+      >
+        <button
+          class="StyledButton-sc-323bzc-0 eHYnCT"
+          type="button"
+        >
+          <div
+            class="StyledBox-sc-13pk1d4-0 kBTLoi"
+          >
+            <span
+              class="StyledText-sc-1sadyjn-0 DkZvS"
+            >
+              Logout
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

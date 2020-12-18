@@ -1,5 +1,6 @@
 import React from 'react'
 import { withFormik } from 'formik'
+import userEvent from '@testing-library/user-event'
 
 import {
   render,
@@ -80,21 +81,11 @@ describe('Login View Component', () => {
     })
 
     await waitFor(() => {
-      fireEvent.change(getByLabelText('Email'), {
-        target: { name: 'email', value: 'test@tester.com' }
-      })
+      userEvent.type(getByLabelText('Email', 'test@tester.com'))
     })
 
     await waitFor(() => {
-      fireEvent.change(getByLabelText('Email'), {
-        target: { name: 'email', value: 'test@tester.com' }
-      })
-    })
-
-    await waitFor(() => {
-      fireEvent.change(getByLabelText('Password'), {
-        target: { name: 'password', value: 'tester' }
-      })
+      userEvent.type(getByLabelText('Password', 'tester'))
     })
 
     await waitFor(() => {

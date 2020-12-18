@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 
 import { render, screen, fireEvent } from 'utils/testUtils/helperRtl'
 
@@ -31,11 +30,7 @@ describe('Dashboard View Component', () => {
   })
 
   it('"Add New User" button click updates route to /add-user', async () => {
-    render(
-      <BrowserRouter>
-        <Dashboard />
-      </BrowserRouter>
-    )
+    render(<Dashboard />)
     const addNewUserBtn = screen.getByRole('button', { name: /Add New User/i })
 
     fireEvent.click(addNewUserBtn)

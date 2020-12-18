@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoutedButton Component should render without crashing 1`] = `
+<div>
+  <button
+    class="StyledButton-sc-323bzc-0 iZFCLM"
+    type="button"
+  />
+</div>
+`;

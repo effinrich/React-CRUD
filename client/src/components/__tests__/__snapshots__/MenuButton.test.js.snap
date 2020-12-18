@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuButton Component should render without crashing 1`] = `
+<div>
+  <button
+    class="StyledButton-sc-323bzc-0 dtwdYB"
+    type="button"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 kBTLoi"
+    >
+      <span
+        class="StyledText-sc-1sadyjn-0 DkZvS"
+      />
+    </div>
+  </button>
+</div>
+`;

@@ -14,6 +14,7 @@ exports[`App View Component renders without crashing 1`] = `
         class="StyledBox-sc-13pk1d4-0 dYebPD"
       >
         <img
+          alt="logo"
           class="StyledImage-ey4zx9-0 inAlaK"
           src="logo.png"
           style="width: 100%; max-width: 170px; height: auto;"

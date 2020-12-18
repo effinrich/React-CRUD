@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBar Component should render without crashing 1`] = `
+<div>
+  <header
+    class="StyledBox-sc-13pk1d4-0 klPIBY"
+    style="z-index: 1; min-height: 65px;"
+  />
+</div>
+`;

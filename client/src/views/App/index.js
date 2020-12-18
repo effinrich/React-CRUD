@@ -62,6 +62,7 @@ const App = () => {
             <Box>
               <Image
                 fill
+                alt="logo"
                 src={Logo}
                 style={{ width: '100%', maxWidth: '170px', height: 'auto' }}
               />
