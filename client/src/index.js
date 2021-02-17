@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import loadable from '@loadable/component'
 import { Grommet } from 'grommet'
+import LogRocket from 'logrocket'
 
 import store from 'store'
 import { theme } from 'theme'
@@ -11,6 +12,8 @@ import { theme } from 'theme'
 import reportWebVitals from './reportWebVitals'
 
 const App = loadable(/* istanbul ignore next */ () => import('views/App'))
+
+LogRocket.init('endpoint/epcvip-test')
 
 ReactDOM.render(
   <React.StrictMode>

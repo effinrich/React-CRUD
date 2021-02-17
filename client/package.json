@@ -32,6 +32,7 @@
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "eslint-config-prettier": "^6.0.0",
+    "logrocket": "^1.0.14",
     "prettier-eslint-cli": "^5.0.0"
   },
   "scripts": {
