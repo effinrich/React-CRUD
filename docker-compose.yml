@@ -19,6 +19,7 @@ services:
     volumes:
       - ./client:/usr/app/client
       - /usr/app/client/node_modules
+    # entrypoint: ["sh", "-c"]
     restart: always
     stdin_open: true
     tty: true
@@ -27,6 +28,7 @@ services:
       - CI=true
     depends_on:
       - epcvip-server
+    # command: ["cp /tmp/yarn.lock yarn.lock & nodemon server.js & if [ '(tar -cf - /usr/local/share/.cache/yarn/v1 | crc32)' != '(tar -cf - .yarn_cache | crc32)' ]; then cp -r /usr/local/share/.cache/yarn/v1/. .yarn_cache/; fi"]
   tests:
     build:
       context: ./client

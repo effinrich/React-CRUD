@@ -1,6 +1,6 @@
 .git
-./node_modules
-./build
+node_modules
+build
 .DS_Store
 .env.local
 .env.test.local
